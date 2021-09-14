@@ -1,0 +1,27 @@
+<h1>Disciplinas</h1>
+
+<form>
+  <label>Disciplina</label><br />
+  <input #materia type="text" />
+  <br />
+  <label>Dia</label><br />
+  <input #dia type="text" />
+  <br />
+  <label>Hora</label><br />
+  <input #hora type="time" />
+  <br /><br />
+  <button
+    (click)="this.disciplinas.add(materia.value,dia.value,hora.value,0,0); materia.value=''"
+  >
+    <b>Adicionar +</b>
+  </button>
+</form>
+<ul>
+  <li *ngFor="let task of this.disciplinas.getList(), index as x">
+    Disciplina:{{task.materia}}<br />
+    Dia/Semana: {{task.dia}}<br />
+    Hora: {{task.hora}}<br />
+    <span (click)="this.disciplinas.remove(x)" style="cursor: pointer"
+      ><b>Remover</b></span>
+  </li>
+</ul>

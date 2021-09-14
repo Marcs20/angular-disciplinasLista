@@ -1,0 +1,24 @@
+<h1>Notas</h1>
+
+<table>
+  <tr>
+    <td>Matéria</td>
+    <td>P1</td>
+    <td>P2</td>
+  </tr>
+  <tbody>
+    <tr *ngFor="let task of this.disciplinas.getList(), index as x">
+      <td><b>{{task.materia}}</b></td>
+      <td>
+        {{task.p1}}
+        <input  maxlength="8" #p1 type="number">
+        <button (click)="this.disciplinas.editP1(x,p1.value)" cursor="pointer">OK</button>
+      </td>
+      <td>
+        {{task.p2}}
+        <input #p2 type="number">
+        <button (click)="this.disciplinas.editP2(x,p2.value)" cursor="pointer">OK</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
